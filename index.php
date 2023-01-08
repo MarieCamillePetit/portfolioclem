@@ -294,72 +294,123 @@
 
   <!-- ======= Veille technologique Section ======= -->
   <section id="Veille" class="Veille">
-    <div class="container">
 
-      <div class="section-title">
-        <h2 style="color: #890d99">Veille technologique</h2>
-      </div>
+<form id="contact_form" name="contact_form" method="post" action="">
+  <div class="champ">
+    <label for="nom">Nom *</label>
+    <input type="text" name="nom" maxlength="50" size="30" value="<?php if (isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']); ?>">
+  </div>
 
-      <div>
-        <h3 class="resume-title">C'est quoi la veille technologique ?</h3>
-        <div class="resume-item pb-0">
-          <p style="text-indent: 1cm;"><em>La veille technologique, élément de la veille stratégique, consiste à <strong style="color: #e059f1">surveiller les évolutions techniques, les innovations dans un secteur d’activité donnée.</strong> La veille technologique comprend notamment la surveillance, la collecte, le partage et la diffusion d’information permettant d’anticiper ou de s’informer sur des changements en matière de recherche, développement, brevet, lancement de nouveaux produits, matériaux, processus, concepts, innovation de fabrication, etc…. Cela a pour but d’évaluer l’ impact sur l’environnement et l’organisation.</em></p>
-          
-          <p> La <strong style="color: #e059f1"> veille technologique</strong> est utilisée principalement pour :
-        <ul>
-          <li>Suivre les <strong style="color: #e059f1">évolutions techniques</strong></li>
-          <li>Dégager de <strong style="color: #e059f1">nouveaux procédés ou matériaux de substitution</strong></li>
-          <li><strong style="color: #e059f1">Anticiper sur la concurrence</strong></li>
-          <li><strong style="color: #e059f1">Diminuer les coûts de production</strong></li>
-          <li><strong style="color: #e059f1">Augmenter la qualité</strong> des produits </li>
-          <li>Identifier les <strong style="color: #e059f1">meilleures pratiques</strong></li>
-        </ul>
-          </p>
-        </div>
-        <h2 class="resume-title">Sujet de ma veille technologique : <strong style="color: #e059f1"> La Cyber Sécurité   </strong><img width="80" height="80" src="assets\img\portfolio\cybersécurity.png"></h2>
-        <div>
-          <div class="resume-item">
-            <p style="text-indent: 1cm;"><em>Le thème de ma veille technologique s'intitule "La Cyber Sécurité des Applications Web". J'envisage une carrière en tant que Web developpeuse et je risque d'être confronté à différents problèmes de sécurité dans mes futurs applications web.</em></p>            
-          </div>
-        </div>
+  <div class="champ">
+    <label for="prenom">Prénom *</label>
+    <input type="text" name="prenom" maxlength="50" size="30" value="<?php if (isset($_POST['prenom'])) echo htmlspecialchars($_POST['prenom']); ?>">
+  </div>
+  
+  <div class="champ">
+    <label for="email">Email *</label>
+    <input type="text" name="email" maxlength="80" size="30" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>">
+  </div>
+  
+  <div class="champ">
+    <label for="commentaire">Description *</label>
+    <textarea name="commentaire" cols="28" rows="10"><?php if (isset($_POST['commentaire'])) echo htmlspecialchars($_POST['commentaire']); ?></textarea>
+  </div>
+  
+  <input type="submit" value=" Envoyer ">
+</form>
 
-        <h2 class="resume-title">Les outils de ma veille :</h2>
-        <div>
-          <div class="resume-item">
-            <p><em>Pour réaliser ma veille technologique, j'ai utilisée les outils suivant :
-            </em>
-            <ul>
-              <li><a href="https://www.inoreader.com/">Inoreader</a></li>
-              <li>Consultation de site (OWASP, CNIL,  ...) </li>
-              <li><a href="https://securityweekly.com/" >SecurityWeekly</a></li>
-              <li>Des Newletters</li>
-            </ul>
-            </p>
-          </div>
-        </div>
-    </div>
+<?php
+if (isset($_POST['email'])) {
 
-    <div class="card-group" >
-      <div class="card" style="color: rgba(255, 255, 255, 0.473); background-color:rgba(0, 0, 0, 0.473)">
-        <a href="https://owasp.org/Top10/fr/">
-          <img class="card-img-top" width="297" height="180"src="assets/img/portfolio/TOP_10_logo_Final_Logo_Colour.png" alt="Card image cap">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title" style="color: #e059f1">OWASP</h5>
-          <p class="card-text"> La liste OWASP Top 10 qui recense les failles de sécurité. Cette liste contient les failles de sécurité les plus courantes et les plus exploitées. </p>
-        </div>
-      </div>
-      <div class="card" style="color: rgba(255, 255, 255, 0.473); background-color:rgba(0, 0, 0, 0.473)">
-        <a href="https://flipboard.com/@mariecamill2c3t/la-cyber-s-curit-nlj6tgbty">
-          <img class="card-img-top" width="297" height="180" src="assets/img/cybersécu.jpg" alt="Card image cap">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title" style="color: #e059f1;">FlipBoard</h5>
-          <p class="card-text">Mon flipBoard qui contient des articles sur la cybersécurité.</p>
-        </div>
-      </div>
-    </div>
-        </div>
+  // EDIT THE 2 LINES BELOW AS REQUIRED
+  $email_to = "clement.pouillart@gmail.com";
+  $email_subject = "Formulaire - Site";
+
+  function died($error)
+  {
+    // your error code can go here
+    echo
+    "Nous sommes désolés, mais des erreurs ont été détectées dans le" .
+      " formulaire que vous avez envoyé. ";
+    echo "Ces erreurs apparaissent ci-dessous.<br /><br />";
+    echo $error . "<br /><br />";
+    echo "Merci de corriger ces erreurs.<br /><br />";
+    die();
+  }
+
+
+  // si la validation des données attendues existe
+  if (
+    !isset($_POST['nom']) ||
+    !isset($_POST['prenom']) ||
+    !isset($_POST['email']) ||
+    !isset($_POST['commentaire'])
+  ) {
+    died(
+      'Nous sommes désolés, mais le formulaire que vous avez soumis semble poser' .
+        ' problème.'
+    );
+  }
+
+
+
+  $nom = $_POST['nom']; // required
+  $prenom = $_POST['prenom']; // required
+  $email = $_POST['email']; // required
+  $commentaire = $_POST['commentaire']; // required
+
+  $error_message = "";
+  $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+
+  if (!preg_match($email_exp, $email)) {
+    $error_message .=
+      'L\'adresse e-mail que vous avez entrée ne semble pas être valide.<br />';
+  }
+
+  // Prend les caractères alphanumériques + le point et le tiret 6
+  $string_exp = "/^[A-Za-z0-9 .'-]+$/";
+
+  if (!preg_match($string_exp, $nom)) {
+    $error_message .=
+      'Le nom que vous avez entré ne semble pas être valide.<br />';
+  }
+
+  if (!preg_match($string_exp, $prenom)) {
+    $error_message .=
+      'Le prénom que vous avez entré ne semble pas être valide.<br />';
+  }
+
+  if (strlen($commentaire) < 2) {
+    $error_message .=
+      'Le commentaire que vous avez entré ne semble pas être valide.<br />';
+  }
+
+  if (strlen($error_message) > 0) {
+    died($error_message);
+  }
+
+  $email_message = "Détail.\n\n";
+  $email_message .= "Nom: " . $nom . "\n";
+  $email_message .= "Prenom: " . $prenom . "\n";
+  $email_message .= "Email: " . $email . "\n";
+  $email_message .= "Commentaire: " . $commentaire . "\n";
+
+  // create email headers
+  $headers = 'From: ' . $email . "\r\n" .
+    'Reply-To: ' . $email . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+  mail($email_to, $email_subject, $email_message, $headers);
+?>
+
+  <!-- mettez ici votre propre message de succès en html -->
+
+  Merci de nous avoir contacter. Nous vous contacterons très bientôt.
+
+<?php
+}
+
+?>
+
   </section><!-- End Resume Section -->
 
   <!-- ======= Portfolio Section ======= -->

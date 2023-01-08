@@ -1211,3 +1211,48 @@ section .container {
       margin-top: 12px;
       font-size: 1.5rem;
 }
+
+/* Ajout css page contact */
+
+#contact_form{
+  padding: 0 2rem;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact_form .champ{
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact_form input{
+  height: 2rem;
+}
+
+#contact_form input,#contact_form textarea{
+  border: 2px solid #890d99;
+}
+
+#contact_form input[type="submit"]{
+  height: unset;
+  width: fit-content;
+  padding: .75rem 2rem;
+  margin: 0 auto;
+  background-color: rgb(7, 7, 7);
+  border: 2px solid #890d99;
+  color: #890d99;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#contact_form input[type="submit"]:hover{
+  background-color: #890d99;
+  color: rgb(7, 7, 7);
+}
